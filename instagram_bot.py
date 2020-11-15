@@ -10,7 +10,10 @@ class InstagramBot:
         options = webdriver.ChromeOptions()
         # options.add_argument("--headless")
         options.add_argument("--start-maximized")
+        # Disable print statement from Selenium
+        options.add_experimental_option("excludeSwitches", ["enable-logging"])
         self.driver = webdriver.Chrome(chrome_options=options)
+
         self.driver.get("https://instagram.com")
 
         self.wait = WebDriverWait(self.driver, 10)
