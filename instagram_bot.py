@@ -14,15 +14,19 @@ class InstagramBot:
         options.add_experimental_option("excludeSwitches", ["enable-logging"])
         self.driver = webdriver.Chrome(chrome_options=options)
 
-        self.driver.get("https://instagram.com")
+        try:
+            self.driver.get("https://instagram.com")
 
-        self.wait = WebDriverWait(self.driver, 10)
+            self.wait = WebDriverWait(self.driver, 10)
 
-        self.wait.until(EC.presence_of_element_located((By.NAME, "username"))).send_keys(
-            username, Keys.TAB, password, Keys.ENTER)
+            self.wait.until(EC.presence_of_element_located((By.NAME, "username"))).send_keys(
+                username, Keys.TAB, password, Keys.ENTER)
 
-        # Wait for page to load
-        self.wait.until(EC.invisibility_of_element_located(
-            (By.XPATH, "//button/div[text()='Log In']")))
+            # Wait for page to load
+            self.wait.until(EC.invisibility_of_element_located(
+                (By.XPATH, "//button/div[text()='Log In']")))
+        except:
+            self.driver.quit()
+            raise Exception("")
 
         self.driver.get(f"https://instagram.com/{username}")

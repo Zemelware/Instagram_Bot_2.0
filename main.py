@@ -14,7 +14,12 @@ while True:
     print("LOGGING IN TO YOUR ACCOUNT...")
     print("---------------------------------------\n")
 
-    bot = InstagramBot(username, password)
+    try:
+        bot = InstagramBot(username, password)
+    except:
+        # The page didn't load either because the user's internet connection is bad/they don't have internet, or they entered the wrong credentials
+        print("An error occurred because of one of two reasons:\n1. You entered the wrong credentials\n2. You have a slow internet connection or you aren't connected to the internet\n")
+        continue
 
     while True:
         print("Select an option (type the number)")
