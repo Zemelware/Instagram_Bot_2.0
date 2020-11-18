@@ -61,8 +61,6 @@ class InstagramBot:
         self.not_following_back = [
             name for name in following if name not in followers]
 
-        print(self.not_following_back)
-
     def get_names(self, scroll_box):
         last_ht = 0
         ht = 1
