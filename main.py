@@ -27,31 +27,40 @@ while True:
         print("1. Check who's not following you back")
         print("2. Use different Instagram account")
         print("3. Quit")
-        chosen_option = input(": ").rstrip()
+        chosen_option = input(": ")
 
-        print("\n---------------------------------------")
-        print("COMPLETING THE TASK...")
-        print("---------------------------------------\n")
+        if chosen_option == "2":
+            print("\n---------------------------------------")
+            print("LOGGING OUT OF YOUR ACCOUNT...")
+            print("---------------------------------------\n")
 
-        if chosen_option == "1":
-            try:
-                bot.get_not_following_back()
-            except:
-                print(
-                    "The bot couldn't complete the task, check your internet connection and try again")
-        elif chosen_option == "2":
             bot.driver.quit()
-            print("")  # This creates a new line
             break
         elif chosen_option == "3":
+            print("\n---------------------------------------")
+            print("QUITTING...")
+            print("---------------------------------------\n")
+
             bot.driver.quit()
             quit()
-        else:
-            print("\nInvalid option\n")
-            continue
 
-        print("\n---------------------------------------")
-        print("THE TASK WAS COMPLETED SUCCESSFULLY")
-        print("---------------------------------------\n")
+        try:
+            if chosen_option == "1":
+                print("\n---------------------------------------")
+                print("COMPLETING THE TASK...")
+                print("---------------------------------------\n")
+
+                bot.get_not_following_back()
+            else:
+                print("\nInvalid option\n")
+                continue
+        except:
+            print(
+                "The bot couldn't complete the task, check your internet connection and try again\n")
+        else:
+            # What happens when code executes without an exception
+            print("\n---------------------------------------")
+            print("THE TASK WAS COMPLETED SUCCESSFULLY")
+            print("---------------------------------------\n")
 
     continue
