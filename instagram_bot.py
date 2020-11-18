@@ -10,7 +10,7 @@ from time import sleep
 class InstagramBot:
     def __init__(self, username, password):
         options = webdriver.ChromeOptions()
-        # options.add_argument("--headless")
+        options.add_argument("--headless")
         options.add_argument("--start-maximized")
         # Disable print statement from Selenium
         options.add_experimental_option("excludeSwitches", ["enable-logging"])
