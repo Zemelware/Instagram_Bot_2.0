@@ -29,6 +29,10 @@ while True:
         print("3. Quit")
         chosen_option = input(": ").rstrip()
 
+        print("\n---------------------------------------")
+        print("COMPLETING THE TASK...")
+        print("---------------------------------------\n")
+
         if chosen_option == "1":
             try:
                 bot.get_not_following_back()
