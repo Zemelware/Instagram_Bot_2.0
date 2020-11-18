@@ -30,7 +30,11 @@ while True:
         chosen_option = input(": ").rstrip()
 
         if chosen_option == "1":
-            bot.get_not_following_back()
+            try:
+                bot.get_not_following_back()
+            except:
+                print(
+                    "The bot couldn't complete the task, check your internet connection and try again")
         elif chosen_option == "2":
             bot.driver.quit()
             print("")  # This creates a new line
