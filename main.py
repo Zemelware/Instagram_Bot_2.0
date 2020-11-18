@@ -1,6 +1,13 @@
 from getpass import getpass
 from instagram_bot import InstagramBot
 
+
+def print_with_lines(message):
+    print("\n---------------------------------------")
+    print(message)
+    print("---------------------------------------\n")
+
+
 print("-------------Instagram Bot-------------")
 print("---------------------------------------")
 
@@ -10,9 +17,7 @@ while True:
     username = input("Username (not email): ")
     password = getpass()
 
-    print("\n---------------------------------------")
-    print("LOGGING IN TO YOUR ACCOUNT...")
-    print("---------------------------------------\n")
+    print_with_lines("LOGGING IN TO YOUR ACCOUNT...")
 
     try:
         bot = InstagramBot(username, password)
@@ -30,25 +35,19 @@ while True:
         chosen_option = input(": ")
 
         if chosen_option == "2":
-            print("\n---------------------------------------")
-            print("LOGGING OUT OF YOUR ACCOUNT...")
-            print("---------------------------------------\n")
+            print_with_lines("LOGGING OUT OF YOUR ACCOUNT...")
 
             bot.driver.quit()
             break
         elif chosen_option == "3":
-            print("\n---------------------------------------")
-            print("QUITTING...")
-            print("---------------------------------------\n")
+            print_with_lines("QUITTING...")
 
             bot.driver.quit()
             quit()
 
         try:
             if chosen_option == "1":
-                print("\n---------------------------------------")
-                print("COMPLETING THE TASK...")
-                print("---------------------------------------\n")
+                print_with_lines("COMPLETING THE TASK...")
 
                 bot.get_not_following_back()
             else:
@@ -59,8 +58,6 @@ while True:
                 "The bot couldn't complete the task, check your internet connection and try again\n")
         else:
             # What happens when code executes without an exception
-            print("\n---------------------------------------")
-            print("THE TASK WAS COMPLETED SUCCESSFULLY")
-            print("---------------------------------------\n")
+            print_with_lines("THE TASK WAS COMPLETED SUCCESSFULLY")
 
     continue
