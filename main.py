@@ -18,7 +18,7 @@ while True:
         bot = InstagramBot(username, password)
     except:
         # The page didn't load either because the user's internet connection is bad/they don't have internet, or they entered the wrong credentials
-        print("An error occurred because of one of two reasons:\n1. You entered the wrong credentials\n2. You have a slow internet connection or you aren't connected to the internet\n")
+        print("The bot wasn't able to log in to your Instagram account because of one of two reasons:\n1. You entered the wrong credentials\n2. You have a slow internet connection or you aren't connected to the internet\n")
         continue
 
     while True:
@@ -30,7 +30,7 @@ while True:
         chosen_option = input(": ").rstrip()
 
         if chosen_option == "1":
-            pass
+            bot.get_not_following_back()
         elif chosen_option == "2":
             bot.driver.quit()
             print("")  # This creates a new line
