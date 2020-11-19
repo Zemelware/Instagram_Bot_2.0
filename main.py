@@ -50,6 +50,10 @@ while True:
                 print_with_lines("COMPLETING THE TASK...")
 
                 bot.get_not_following_back()
+
+                with open("not_following_back", "w") as f:
+                    f.writelines(
+                        [f"{name}\n" for name in bot.not_following_back])
             else:
                 print("\nInvalid option\n")
                 continue
