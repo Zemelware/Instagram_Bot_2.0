@@ -51,7 +51,7 @@ while True:
 
                 bot.get_not_following_back()
 
-                with open("not_following_back", "w") as f:
+                with open("not_following_back.txt", "w") as f:
                     f.writelines(
                         [f"{name}\n" for name in bot.not_following_back])
             else:
